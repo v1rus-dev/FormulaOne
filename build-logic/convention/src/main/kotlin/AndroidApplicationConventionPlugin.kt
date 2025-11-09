@@ -29,12 +29,15 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 }
 
                 buildTypes {
-                    getByName("release") {
+                    release {
                         isMinifyEnabled = false
                         proguardFiles(
                             getDefaultProguardFile("proguard-android-optimize.txt"),
                             "proguard-rules.pro"
                         )
+                    }
+                    debug {
+                        versionNameSuffix = "d"
                     }
                 }
 
@@ -48,6 +51,8 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 implementation(libs.findLibrary("androidx-core-ktx").get())
                 implementation(libs.findLibrary("androidx-lifecycle-runtime-ktx").get())
                 implementation(libs.findLibrary("jetbrains-serialization-json").get())
+                implementation(libs.findLibrary("androidx-startup").get())
+                implementation(libs.findLibrary("timber").get())
 
                 testImplementation(libs.findLibrary("junit").get())
                 androidTestImplementation(libs.findLibrary("androidx-junit").get())

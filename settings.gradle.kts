@@ -30,6 +30,12 @@ include(
     ":core:design",
     ":core:navigation",
 
-    ":features:root:presentation",
-    ":features:root:data",
+    ":features:debug:data",
+    ":features:debug:presentation",
+
+    ":features:home:data",
+    ":features:home:presentation",
+
+    ":features:settings:data",
+    ":features:settings:presentation",
 )

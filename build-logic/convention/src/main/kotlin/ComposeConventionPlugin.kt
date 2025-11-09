@@ -18,6 +18,8 @@ class ComposeConventionPlugin : Plugin<Project> {
             }
 
             dependencies {
+                implementation(project(":core:navigation"))
+
                 implementation(platform(libs.findLibrary("androidx-compose-bom").get()))
                 implementation(libs.findLibrary("androidx-compose-ui").get())
                 implementation(libs.findLibrary("androidx-compose-ui-graphics").get())
@@ -27,6 +29,11 @@ class ComposeConventionPlugin : Plugin<Project> {
                 implementation(libs.findLibrary("androidx-compose-ui-tooling-preview").get())
                 implementation(libs.findLibrary("androidx-compose-material3").get())
                 implementation(libs.findLibrary("androidx-navigation-compose").get())
+                implementation(libs.findLibrary("androidx-navigation3-runtime").get())
+                implementation(libs.findLibrary("androidx-navigation3-ui").get())
+                implementation(libs.findLibrary("androidx-lifecycle-viewmodel-navigation3").get())
+
+                implementation(libs.findLibrary("composeIcons-evaIcons").get())
             }
         }
     }

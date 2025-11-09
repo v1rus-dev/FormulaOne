@@ -2,29 +2,39 @@ package yegor.cheprasov.formulaone
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation3.runtime.NavBackStack
+import androidx.navigation3.runtime.NavKey
+import androidx.navigation3.runtime.rememberNavBackStack
+import yegor.cheprasov.formulaone.compose.MainNavHost
+import yegor.cheprasov.formulaone.core.navigation.Screen
 import yegor.cheprasov.formulaone.ui.theme.FormulaOneTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        enableEdgeToEdge(
+            statusBarStyle = SystemBarStyle.auto(
+                lightScrim = Color.Transparent.toArgb(),
+                darkScrim = Color.Transparent.toArgb()
+            ),
+            navigationBarStyle = SystemBarStyle.auto(
+                lightScrim = Color.Transparent.toArgb(),
+                darkScrim = Color.Transparent.toArgb()
+            )
+        )
         setContent {
             FormulaOneTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                val navController: NavBackStack<NavKey> = rememberNavBackStack(Screen.RootRoute)
+                MainNavHost(navController = navController as NavBackStack<Screen>)
             }
         }
     }

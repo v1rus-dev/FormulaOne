@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.formulaone.android.application)
     alias(libs.plugins.formulaone.android.compose)
+    alias(libs.plugins.formulaone.koin)
+    alias(libs.plugins.formulaone.koin.compose)
 }
 
 android {
@@ -10,6 +12,10 @@ android {
         applicationId = "yegor.cheprasov.formulaone"
         versionCode = 1
         versionName = "1.0"
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 }
 
@@ -23,8 +29,14 @@ dependencies {
     implementation(projects.core.design)
     implementation(projects.core.navigation)
 
-    implementation(projects.features.root.data)
-    implementation(projects.features.root.presentation)
+    debugImplementation(projects.features.debug.data)
+    debugImplementation(projects.features.debug.presentation)
+
+    implementation(projects.features.home.data)
+    implementation(projects.features.home.presentation)
+
+    implementation(projects.features.settings.data)
+    implementation(projects.features.settings.presentation)
 
     /**
      * Test or debug

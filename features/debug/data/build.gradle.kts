@@ -3,5 +3,5 @@ plugins {
 }
 
 android {
-    namespace = "yegor.cheprasov.formulaone.fetures.root.data"
+    namespace = "yegor.cheprasov.formulaone.features.debug.data"
 }
