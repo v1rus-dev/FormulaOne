@@ -1,16 +1,8 @@
 plugins {
-    alias(libs.plugins.android.library)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.formulaone.android.library)
+    alias(libs.plugins.formulaone.android.compose)
 }
 
 android {
     namespace = "yegor.cheprasov.formulaone.core.design"
-    compileSdk {
-        version = release(36)
-    }
-}
-
-dependencies {
-    implementation(libs.jetbrains.serialization.json)
 }

@@ -1,29 +1,69 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     `kotlin-dsl`
 }
 
-group = "yegor.cheprasov.build_logic.convention"
-
-dependencies {
-    implementation(libs.gradleplugin.android)
-    implementation(libs.gradleplugin.compose)
-    implementation(libs.gradleplugin.composeCompiler)
-    implementation(libs.gradleplugin.kotlin)
-}
+group = "yegor.cheprasov.formulaone.buildlogic"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
-tasks.withType<KotlinCompile>().configureEach {
-    compilerOptions.jvmTarget.set(JvmTarget.JVM_11)
+kotlin {
+    compilerOptions {
+        jvmTarget = JvmTarget.JVM_17
+    }
 }
 
-//dependencies {
-//    implementation(libs.plugins.android.library)
-//    implementation(libs.plugins.kotlin.android)
-//}
+dependencies {
+    compileOnly(libs.android.gradleApiPlugin)
+    compileOnly(libs.android.tools.common)
+    compileOnly(libs.compose.gradlePlugin)
+    compileOnly(libs.firebase.crashlytics.gradlePlugin)
+    compileOnly(libs.firebase.performance.gradlePlugin)
+    compileOnly(libs.kotlin.gradlePlugin)
+    compileOnly(libs.ksp.gradlePlugin)
+    compileOnly(libs.room.gradlePlugin)
+}
+
+tasks {
+    validatePlugins {
+        enableStricterValidation = true
+        failOnWarning = true
+    }
+}
+
+gradlePlugin {
+    plugins {
+        register("androidApplication") {
+            id = libs.plugins.formulaone.android.application.get().pluginId
+            implementationClass = "AndroidApplicationConventionPlugin"
+        }
+        register("androidLibrary") {
+            id = libs.plugins.formulaone.android.library.get().pluginId
+            implementationClass = "AndroidLibraryConventionPlugin"
+        }
+        register("androidCompose") {
+            id = libs.plugins.formulaone.android.compose.get().pluginId
+            implementationClass = "ComposeConventionPlugin"
+        }
+        register("androidFeatureData") {
+            id = libs.plugins.formulaone.feature.data.get().pluginId
+            implementationClass = "AndroidFeatureDataConventionPlugin"
+        }
+        register("androidFeaturePresentation") {
+            id = libs.plugins.formulaone.feature.presentation.get().pluginId
+            implementationClass = "AndroidFeaturePresentationConventionPlugin"
+        }
+        register("androidKoin") {
+            id = libs.plugins.formulaone.koin.asProvider().get().pluginId
+            implementationClass = "KoinConventionPlugin"
+        }
+        register("androidKoinCompose") {
+            id = libs.plugins.formulaone.koin.compose.get().pluginId
+            implementationClass = "KoinComposeConventionPlugin"
+        }
+    }
+}

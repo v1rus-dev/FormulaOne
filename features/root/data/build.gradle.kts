@@ -1,10 +1,7 @@
 plugins {
-    alias(libs.plugins.android.library)
+    alias(libs.plugins.formulaone.feature.data)
 }
 
 android {
     namespace = "yegor.cheprasov.formulaone.fetures.root.data"
-    compileSdk {
-        version = release(36)
-    }
 }
