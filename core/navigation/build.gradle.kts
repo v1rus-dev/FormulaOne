@@ -5,7 +5,3 @@ plugins {
 android {
     namespace = "yegor.cheprasov.formulaone.core.navigation"
 }
-
-dependencies {
-    implementation(libs.androidx.navigation3.ui)
-}

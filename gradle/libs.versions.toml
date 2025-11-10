@@ -17,8 +17,6 @@ viewModelCompose = "2.9.4"
 composeBom = "2025.11.00"
 composeGradlePlugin = "1.9.3"
 composeNavigation = "2.9.6"
-composeNavigation3 = "1.0.0-rc01"
-lifecycleViewmodelNav3 = "2.10.0-rc01"
 retrofit = "3.0.0"
 jetbrainsSerialization = "1.9.0"
 appcompat = "1.7.1"
@@ -49,9 +47,6 @@ androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-
 androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "composeNavigation" }
-androidx-navigation3-runtime = { group = "androidx.navigation3", name = "navigation3-runtime", version.ref = "composeNavigation3" }
-androidx-navigation3-ui = { group = "androidx.navigation3", name = "navigation3-ui", version.ref = "composeNavigation3" }
-androidx-lifecycle-viewmodel-navigation3 = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-navigation3", version.ref = "lifecycleViewmodelNav3" }
 composeIcons-evaIcons = { module = "br.com.devsrsouza.compose.icons:eva-icons", version.ref = "composeIcons" }
 
 com-squareup-retrofit = { group = "com.squareup.retorifit2", name = "retrofit", version.ref = "retrofit" }

@@ -1,19 +1,17 @@
 package yegor.cheprasov.formulaone.features.settings.presentation.screen
 
 import androidx.compose.runtime.Composable
-import androidx.lifecycle.ViewModelStoreOwner
-import androidx.navigation3.runtime.NavBackStack
+import androidx.navigation.NavController
 import org.koin.androidx.compose.koinViewModel
-import yegor.cheprasov.formulaone.core.navigation.Screen
+import yegor.cheprasov.formulaone.core.navigation.DebugRoute
 import yegor.cheprasov.formulaone.features.settings.presentation.screen.composable.SettingsScreen
 
 @Composable
 internal fun SettingsScreenDestination(
-    navController: NavBackStack<Screen>,
-    viewModelStoreOwner: ViewModelStoreOwner
+    navController: NavController
 ) {
-    val viewModel: SettingsViewModel = koinViewModel(viewModelStoreOwner = viewModelStoreOwner)
+    val viewModel: SettingsViewModel = koinViewModel()
     SettingsScreen {
-        navController.add(Screen.DebugRoute)
+        navController.navigate(DebugRoute)
     }
 }

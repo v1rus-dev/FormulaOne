@@ -1,17 +1,16 @@
 package yegor.cheprasov.formulaone.features.home.presentation.navigation
 
-import androidx.lifecycle.ViewModelStoreOwner
-import androidx.navigation3.runtime.EntryProviderScope
-import androidx.navigation3.runtime.NavBackStack
+import androidx.navigation.NavController
+import androidx.navigation.NavGraphBuilder
+import androidx.navigation.compose.composable
 import yegor.cheprasov.formulaone.core.navigation.BottomBarScreen
-import yegor.cheprasov.formulaone.core.navigation.Screen
 import yegor.cheprasov.formulaone.features.home.presentation.screen.HomeScreenDestination
 
-fun EntryProviderScope<BottomBarScreen>.homeScreenEntryPoint(
-    navController: NavBackStack<Screen>,
-    viewModelStoreOwner: ViewModelStoreOwner
+fun NavGraphBuilder.homeScreenNavigationGraphBuilder(
+    navController: NavController,
+    tabNavController: NavController
 ) {
-    entry<BottomBarScreen.Home> { entry: BottomBarScreen.Home ->
-        HomeScreenDestination(navController = navController, viewModelStoreOwner = viewModelStoreOwner)
+    composable<BottomBarScreen.Home> {
+        HomeScreenDestination(navController = navController)
     }
 }

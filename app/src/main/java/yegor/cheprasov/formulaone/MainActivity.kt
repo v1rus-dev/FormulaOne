@@ -11,11 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation3.runtime.NavBackStack
-import androidx.navigation3.runtime.NavKey
-import androidx.navigation3.runtime.rememberNavBackStack
+import androidx.navigation.compose.rememberNavController
 import yegor.cheprasov.formulaone.compose.MainNavHost
-import yegor.cheprasov.formulaone.core.navigation.Screen
 import yegor.cheprasov.formulaone.ui.theme.FormulaOneTheme
 
 class MainActivity : ComponentActivity() {
@@ -33,8 +30,8 @@ class MainActivity : ComponentActivity() {
         )
         setContent {
             FormulaOneTheme {
-                val navController: NavBackStack<NavKey> = rememberNavBackStack(Screen.RootRoute)
-                MainNavHost(navController = navController as NavBackStack<Screen>)
+                val navController = rememberNavController()
+                MainNavHost(navController = navController)
             }
         }
     }
