@@ -29,6 +29,9 @@ include(
     ":core:database",
     ":core:design",
     ":core:navigation",
+    ":core:domain_models",
+    ":core:data",
+    ":core:mappers",
 
     ":features:debug:data",
     ":features:debug:presentation",
@@ -38,4 +41,10 @@ include(
 
     ":features:settings:data",
     ":features:settings:presentation",
+
+    ":features:drivers_list:data",
+    ":features:drivers_list:presentation",
+
+    ":features:team_list:data",
+    ":features:team_list:presentation",
 )

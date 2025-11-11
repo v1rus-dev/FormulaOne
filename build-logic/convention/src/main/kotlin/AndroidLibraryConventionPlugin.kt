@@ -18,7 +18,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
         with(target) {
             apply(plugin = "com.android.library")
             apply(plugin = "org.jetbrains.kotlin.android")
-            apply(plugin = "org.jetbrains.kotlin.plugin.serialization")
+            apply(plugin = libs.findPlugin("kotlin-serialization").get().get().pluginId)
 
             androidLibrary {
                 compileSdk = 36

@@ -1,10 +1,5 @@
 package yegor.cheprasov.formulaone.main.compose
 
-import androidx.compose.animation.core.FastOutLinearInEasing
-import androidx.compose.animation.core.LinearOutSlowInEasing
-import androidx.compose.animation.core.tween
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.navigationBars
@@ -18,9 +13,10 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import yegor.cheprasov.formulaone.core.navigation.BottomBarScreen
-import yegor.cheprasov.formulaone.core.navigation.bottomBarItems
+import yegor.cheprasov.formulaone.features.drivers_list.presentation.navigation.driversListScreenNavigationGraphRoute
 import yegor.cheprasov.formulaone.features.home.presentation.navigation.homeScreenNavigationGraphBuilder
 import yegor.cheprasov.formulaone.features.settings.presentation.navigation.settingsScreenNavigationGraphBuilder
+import yegor.cheprasov.formulaone.features.team_list.presentation.navigation.teamListScreenNavigationGraphRoute
 
 @Composable
 internal fun MainScreen(
@@ -33,6 +29,8 @@ internal fun MainScreen(
 
     val currentBottomBarScreen = when {
         currentDestination?.hasRoute<BottomBarScreen.Home>() == true -> BottomBarScreen.Home
+        currentDestination?.hasRoute<BottomBarScreen.Drivers>() == true -> BottomBarScreen.Drivers
+        currentDestination?.hasRoute<BottomBarScreen.Teams>() == true -> BottomBarScreen.Teams
         currentDestination?.hasRoute<BottomBarScreen.Settings>() == true -> BottomBarScreen.Settings
         else -> BottomBarScreen.Home
     }
@@ -73,6 +71,8 @@ private fun MainTabNavHost(
     ) {
         homeScreenNavigationGraphBuilder(navController, tabNavController)
         settingsScreenNavigationGraphBuilder(navController, tabNavController)
+        driversListScreenNavigationGraphRoute(navController, tabNavController)
+        teamListScreenNavigationGraphRoute(navController, navController)
     }
 }
 

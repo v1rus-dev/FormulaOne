@@ -65,5 +65,9 @@ gradlePlugin {
             id = libs.plugins.formulaone.koin.compose.get().pluginId
             implementationClass = "KoinComposeConventionPlugin"
         }
+        register("retrofit") {
+            id = libs.plugins.formulaone.retrofit.get().pluginId
+            implementationClass = "RetrofitConventionPlugin"
+        }
     }
 }

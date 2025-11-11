@@ -8,8 +8,8 @@ import org.gradle.kotlin.dsl.dependencies
 class ComposeConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
-            plugins.apply("org.jetbrains.kotlin.android")
-            plugins.apply("org.jetbrains.kotlin.plugin.compose")
+            plugins.apply(libs.findPlugin("kotlin-android").get().get().pluginId)
+            plugins.apply(libs.findPlugin("kotlin-compose").get().get().pluginId)
 
             android {
                 buildFeatures {

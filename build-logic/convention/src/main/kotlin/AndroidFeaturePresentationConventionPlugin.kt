@@ -15,6 +15,7 @@ class AndroidFeaturePresentationConventionPlugin : Plugin<Project> {
 
             dependencies {
                 implementation(project(":core:design"))
+                implementation(project(":core:domain_models"))
             }
         }
     }

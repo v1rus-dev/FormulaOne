@@ -25,6 +25,7 @@ dependencies {
      */
 
     implementation(projects.core.api)
+    implementation(projects.core.data)
     implementation(projects.core.database)
     implementation(projects.core.design)
     implementation(projects.core.navigation)
@@ -37,6 +38,12 @@ dependencies {
 
     implementation(projects.features.settings.data)
     implementation(projects.features.settings.presentation)
+
+    implementation(projects.features.driversList.data)
+    implementation(projects.features.driversList.presentation)
+
+    implementation(projects.features.teamList.data)
+    implementation(projects.features.teamList.presentation)
 
     /**
      * Test or debug

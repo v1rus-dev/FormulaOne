@@ -6,3 +6,7 @@ plugins {
 android {
     namespace = "yegor.cheprasov.formulaone.core.design"
 }
+
+dependencies {
+    implementation(projects.core.domainModels)
+}

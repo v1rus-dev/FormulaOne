@@ -5,3 +5,7 @@ plugins {
 android {
     namespace = "yegor.cheprasov.formulaone.core.navigation"
 }
+
+dependencies {
+    implementation(projects.core.domainModels)
+}
