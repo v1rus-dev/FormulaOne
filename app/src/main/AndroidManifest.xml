@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -35,6 +36,9 @@
                 android:value="androidx.startup" />
             <meta-data
                 android:name="yegor.cheprasov.formulaone.logging.TimberInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="yegor.cheprasov.formulaone.imageLoader.ImageLoaderInitializer"
                 android:value="androidx.startup" />
         </provider>
     </application>

@@ -31,6 +31,8 @@ class ComposeConventionPlugin : Plugin<Project> {
                 implementation(libs.findLibrary("androidx-navigation-compose").get())
 
                 implementation(libs.findLibrary("composeIcons-evaIcons").get())
+                implementation(libs.findLibrary("coil-compose").get())
+                implementation(libs.findLibrary("coil-network-okhttp").get())
             }
         }
     }

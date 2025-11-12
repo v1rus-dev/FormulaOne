@@ -13,7 +13,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import yegor.cheprasov.formulaone.compose.MainNavHost
-import yegor.cheprasov.formulaone.ui.theme.FormulaOneTheme
+import yegor.cheprasov.formulaone.core.design.theme.FormulaOneTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
